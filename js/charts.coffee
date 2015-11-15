@@ -2,11 +2,15 @@ chart = (type, id, data) ->
   selector: id
   type: type
   data: data
+
   options:
     animationSteps: 60
     responsive: yes
+    scaleFontSize: 26
     scaleFontColor: '#CCC'
     scaleLineColor: '#999'
+    tooltipFontSize: 30
+    barValueSpacing: 100
 
 mcrPie = (id, mobile, pc) ->
   chart 'pie', id, [

@@ -45,11 +45,7 @@
     <!-- Any section element inside of this container is displayed as a slide -->
     <div class="slides">
         <section>
-            <h1>Our interests</h1>
-
-            <h3 class="fragment highlight-blue">Code Reviews on Mobile Devices</h3>
-
-            <h3>Gamification in Software Engineering and Education</h3>
+            <h1>Our interests & work</h1>
 
             <p>
                 <small>Wojciech Frącz, Jacek Dajda</small>
@@ -57,6 +53,14 @@
             <p>
                 <small>Nov 2015</small>
             </p>
+        </section>
+
+        <section>
+            <h3 class="fragment grow highlight-blue">Code Reviews on Mobile Devices</h3>
+
+            <p>&</p>
+
+            <h3>Gamification in Software Engineering and Education</h3>
         </section>
 
         <section>
@@ -73,7 +77,6 @@
             <h2>Can we review the&nbsp;source code on a&nbsp;smartphone?</h2>
         </section>
 
-
         <section>
             <section>
                 <h2>Mobile application</h2>
@@ -82,7 +85,7 @@
             <section>
                 <h2>Mobile application</h2>
                 <ul>
-                    <li><i class="fa fa-android"></i> Android 2.2+</li>
+                    <li><i class="fa fa-android" style="color:#00A000"></i> Android 2.2+</li>
                     <li>syntax coloring</li>
                     <li>
                         comments:
@@ -102,43 +105,49 @@
         <section>
             <section>
                 <h2>Mobile vs Desktop</h2>
-                <ul>
-                    <li>two &ldquo;tasks&rdquo;</li>
-                    <li>source code in Java, containing ~60 smells in total</li>
-                    <li>each participant uses either mobile or PC review tool</li>
-                    <li>the same time limit for both (20 minutes per task)</li>
-                    <li>students of the 3rd year CS, BSc</li>
-                </ul>
+
+                <p>two tasks (source code with smells to review)</p>
+
+                <p><i class="fa fa-clock-o" style="color: #00a9ff"></i> 20 minutes per task</p>
+
+                <p><i class="fa fa-graduation-cap" style="color: #00a9ff"></i> students of the 3rd year CS, BSc</p>
+
+                <p>using either <i class="fa fa-mobile" style="color: #00a9ff"></i> mobile or <i class="fa fa-desktop"
+                                                                                                 style="color: #00a9ff"></i>
+                    PC review tool</p>
             </section>
+            <section data-background-image="http://magazynt3.pl/wp-content/uploads/2011/12/javalogo.jpg"></section>
             <section>
                 <h2>Excerpt of the code</h2>
-                <pre>
-                    <code data-trim class="hljs java">
-                        public Line(Context context, SourceFile sourceFile, int lineNumber,
-                        String lineOfCode, boolean syntaxColor) {
-                        super(context);
-                        this.sourceFile = sourceFile;
-                        this._lineNumber = lineNumber;
-                        this._lineOfCode = lineOfCode;
-                        setOrientation(LinearLayout.HORIZONTAL);
+                <pre style="box-shadow: none;">
+                    <!-- @formatter:off -->
+                    <code data-trim class="hljs java" style="overflow: visible">
+public Line(Context context, SourceFile sourceFile, int lineNumber,
+            String lineOfCode, boolean syntaxColor) {
+    super(context);
+    this.sourceFile = sourceFile;
+    this._lineNumber = lineNumber;
+    this._lineOfCode = lineOfCode;
+    setOrientation(LinearLayout.HORIZONTAL);
 
-                        lineNumberView = new TextView(getContext());
-                        lineNumberView.setText(String.format("%d.", lineNumber));
-                        lineNumberView.setSingleLine();
-                        lineNumberView.setWidth(30);
-                        addView(lineNumberView);
+    lineNumberView = new TextView(getContext());
+    lineNumberView.setText(String.format("%d.", lineNumber));
+    lineNumberView.setSingleLine();
+    lineNumberView.setWidth(30);
+    addView(lineNumberView);
 
-                        TextView lineContent = new TextView(getContext());
-                        addLineContent(syntaxColor);
-                        }
+    TextView lineContent = new TextView(getContext());
+    addLineContent(syntaxColor);
+}
                     </code>
+                    <!-- @formatter:on -->
                 </pre>
             </section>
         </section>
 
         <!-- Example of nested vertical slides -->
         <section>
-            <section>
+            <section data-transition-speed="fast">
                 <h3>Total Reviews (181)</h3>
                 <iframe id="mcr-reviews" data-chart scrolling="no" class="stretch"></iframe>
                 <small>
@@ -146,7 +155,7 @@
                     <span class="legend pc"></span> PC
                 </small>
             </section>
-            <section>
+            <section data-transition-speed="fast">
                 <h3>Total Comments (2426)</h3>
                 <iframe id="mcr-comments" data-chart scrolling="no" class="stretch"></iframe>
                 <small>
@@ -154,19 +163,19 @@
                     <span class="legend pc"></span> PC
                 </small>
             </section>
-            <section>
-                <h3>Avg comments per review</h3>
-                <iframe id="mcr-comments-avg" data-chart scrolling="no" class="stretch"></iframe>
+            <section data-transition-speed="fast">
+                <h2>Avg comments per review</h2>
+                <iframe id="mcr-comments-avg" data-chart scrolling="no" style="width:700px; height:700px;"></iframe>
             </section>
-            <section>
-                <h4>Avg detected smells per review</h4>
-                <iframe id="mcr-smells-avg" data-chart scrolling="no" class="stretch"></iframe>
+            <section data-transition-speed="fast">
+                <h2>Avg detected smells per review</h2>
+                <iframe id="mcr-smells-avg" data-chart scrolling="no" style="width:700px; height:700px;"></iframe>
             </section>
-            <section>
-                <h4>Avg worthless comments per review</h4>
-                <iframe id="mcr-worthless" data-chart scrolling="no" class="stretch"></iframe>
+            <section data-transition-speed="fast">
+                <h2>Avg worthless comments per review</h2>
+                <iframe id="mcr-worthless" data-chart scrolling="no" style="width:700px; height:700px;"></iframe>
             </section>
-            <section>
+            <section data-transition-speed="fast">
                 <h4>Comment types (mobile)</h4>
                 <iframe id="mcr-comment-types" data-chart scrolling="no" class="stretch"></iframe>
                 <small>
@@ -193,37 +202,23 @@
                 <li>mobile code reviews are as efficient as PC</li>
                 <li>mobile devices are comfortable for reading source code</li>
             </ul>
-            <h4 class="fragment grow" style="margin-top: 1em">We can review a code on a smartphone!</h4>
+            <h4 class="fragment grow highlight-green" style="margin-top: 1em">We can review a code on a smartphone!</h4>
         </section>
 
         <section>
-            <h1>Our interests</h1>
-
             <h3>Code Reviews on Mobile Devices</h3>
 
-            <h3 class="fragment highlight-blue">Gamification in Software Engineering and Education</h3>
+            <p>&</p>
 
-            <p>
-                <small>Wojciech Frącz, Jacek Dajda</small>
-            </p>
-            <p>
-                <small>Nov 2015</small>
-            </p>
+            <h3 class="fragment grow highlight-blue">Gamification in Software Engineering and Education</h3>
         </section>
 
         <section>
-            <h2>What have we gamified?</h2>
+            <h2>We tried to gamify</h2>
+            <h4 class="fragment highlight-green grow">University classes</h4>
 
-            <ul>
-                <li class="fragment highlight-green">
-                    Classes with students
-                    <!--<ul>-->
-                    <!--<li>learning a Git tool</li>-->
-                    <!--<li>code reviews</li>-->
-                    <!--</ul>-->
-                </li>
-                <li>Developers and code reviews</li>
-            </ul>
+            <p>&</p>
+            <h4>Developers doing code reviews</h4>
         </section>
 
         <section data-background-transition="zoom"
@@ -263,34 +258,55 @@
             </section>
             <section>
                 <p>Gamified students managed to submit</p>
+
                 <h3>one attempt more</h3>
+
                 <p>on average in the same time.</p>
             </section>
-            <section>
+            <section data-background-image="images/playing.gif" style="background-color: rgba(0, 0, 0, 0.7);">
                 <p>Moreover,</p>
+
                 <h3>they liked the game elements</h3>
+
                 <p>as they assesed the classes with gamification higher</p>
             </section>
         </section>
 
-        <section>
-            <h2>What have we gamified?</h2>
+        <section data-background-color="#102f5d" data-transition="fade">
+            <h3>What about other types of classes?</h3>
+        </section>
 
-            <ul>
-                <li >
-                    Classes with students
-                    <!--<ul>-->
-                    <!--<li>learning a Git tool</li>-->
-                    <!--<li>code reviews</li>-->
-                    <!--</ul>-->
-                </li>
-                <li class="fragment highlight-green">Developers and code reviews</li>
-            </ul>
+        <section data-background-color="#FFFFFF">
+            <section data-transition="none">
+                <img src="images/git/git3.png">
+            </section>
+            <section data-transition="none">
+                <img src="images/crscheme.png">
+            </section>
+            <section
+                    data-background-image="https://upload.wikimedia.org/wikipedia/mediawiki/thumb/a/a7/Gerrit.svg/200px-Gerrit.svg.png"
+                    data-background-repeat="repeat" data-background-size="100px"
+                    style="background-color: rgba(0, 0, 0, 0.7);" data-background-transition="slide">
+                <h1>Gerrit code review</h1>
+            </section>
+            <section data-transition="concave">
+                <img src="images/crresult.jpg">
+            </section>
         </section>
 
         <section>
-            <h1>AMADEUSZ HERE</h1>
+            <p>We have not analyzed the results yet, but...</p>
         </section>
+
+        <section>
+            <h2>We tried to gamify</h2>
+            <h4>University classes</h4>
+
+            <p>&</p>
+            <h4 class="fragment highlight-green grow">Developers doing code reviews</h4>
+        </section>
+
+        <section data-background-image="images/gerrit.jpg"></section>
 
         <section style="text-align: left;">
             <h1>THE END</h1>
@@ -306,7 +322,6 @@
 <script src="js/charts.js"></script>
 
 <script>
-
 
 
     // Full list of configuration options available at:

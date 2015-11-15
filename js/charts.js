@@ -10,8 +10,11 @@
       options: {
         animationSteps: 60,
         responsive: true,
+        scaleFontSize: 26,
         scaleFontColor: '#CCC',
-        scaleLineColor: '#999'
+        scaleLineColor: '#999',
+        tooltipFontSize: 30,
+        barValueSpacing: 100
       }
     };
   };
