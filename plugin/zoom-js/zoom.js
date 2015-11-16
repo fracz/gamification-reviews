@@ -34,33 +34,45 @@
  *
  * Copyright (C) 2011-2014 Hakim El Hattab, http://hakim.se
  */
+/*!
+ * zoom.js 0.3
+ * http://lab.hakim.se/zoom-js
+ * MIT licensed
+ *
+ * Copyright (C) 2011-2014 Hakim El Hattab, http://hakim.se
+ */
 var zoom = (function(){
+
+	var TRANSITION_DURATION = 800;
 
 	// The current zoom level (scale)
 	var level = 1;
 
 	// The current mouse position, used for panning
 	var mouseX = 0,
-		mouseY = 0;
+			mouseY = 0;
 
 	// Timeout before pan is activated
 	var panEngageTimeout = -1,
-		panUpdateInterval = -1;
+			panUpdateInterval = -1;
+
+	// Timeout for callback function
+	var callbackTimeout = -1;
 
 	// Check for transform support so that we can fallback otherwise
 	var supportsTransforms = 	'WebkitTransform' in document.body.style ||
-								'MozTransform' in document.body.style ||
-								'msTransform' in document.body.style ||
-								'OTransform' in document.body.style ||
-								'transform' in document.body.style;
+			'MozTransform' in document.body.style ||
+			'msTransform' in document.body.style ||
+			'OTransform' in document.body.style ||
+			'transform' in document.body.style;
 
 	if( supportsTransforms ) {
 		// The easing that will be applied when we zoom in/out
-		document.body.style.transition = 'transform 0.8s ease';
-		document.body.style.OTransition = '-o-transform 0.8s ease';
-		document.body.style.msTransition = '-ms-transform 0.8s ease';
-		document.body.style.MozTransition = '-moz-transform 0.8s ease';
-		document.body.style.WebkitTransition = '-webkit-transform 0.8s ease';
+		document.body.style.transition = 'transform '+ TRANSITION_DURATION +'ms ease';
+		document.body.style.OTransition = '-o-transform '+ TRANSITION_DURATION +'ms ease';
+		document.body.style.msTransition = '-ms-transform '+ TRANSITION_DURATION +'ms ease';
+		document.body.style.MozTransition = '-moz-transform '+ TRANSITION_DURATION +'ms ease';
+		document.body.style.WebkitTransition = '-webkit-transform '+ TRANSITION_DURATION +'ms ease';
 	}
 
 	// Zoom out if the user hits escape
@@ -109,7 +121,7 @@ var zoom = (function(){
 			// Scale
 			else {
 				var origin = scrollOffset.x +'px '+ scrollOffset.y +'px',
-					transform = 'translate('+ -rect.x +'px,'+ -rect.y +'px) scale('+ scale +')';
+						transform = 'translate('+ -rect.x +'px,'+ -rect.y +'px) scale('+ scale +')';
 
 				document.body.style.transformOrigin = origin;
 				document.body.style.OTransformOrigin = origin;
@@ -146,26 +158,17 @@ var zoom = (function(){
 		}
 
 		level = scale;
-
-		if( document.documentElement.classList ) {
-			if( level !== 1 ) {
-				document.documentElement.classList.add( 'zoomed' );
-			}
-			else {
-				document.documentElement.classList.remove( 'zoomed' );
-			}
-		}
 	}
 
 	/**
-	 * Pan the document when the mosue cursor approaches the edges
+	 * Pan the document when the mouse cursor approaches the edges
 	 * of the window.
 	 */
 	function pan() {
 		var range = 0.12,
-			rangeX = window.innerWidth * range,
-			rangeY = window.innerHeight * range,
-			scrollOffset = getScrollOffset();
+				rangeX = window.innerWidth * range,
+				rangeY = window.innerHeight * range,
+				scrollOffset = getScrollOffset();
 
 		// Up
 		if( mouseY < rangeY ) {
@@ -198,11 +201,17 @@ var zoom = (function(){
 		 * Zooms in on either a rectangle or HTML element.
 		 *
 		 * @param {Object} options
+		 *
+		 *   (required)
 		 *   - element: HTML element to zoom in on
 		 *   OR
 		 *   - x/y: coordinates in non-transformed space to zoom in on
 		 *   - width/height: the portion of the screen to zoom in on
 		 *   - scale: can be used instead of width/height to explicitly set scale
+		 *
+		 *   (optional)
+		 *   - callback: call back when zooming in ends
+		 *   - padding: spacing around the zoomed in element
 		 */
 		to: function( options ) {
 
@@ -218,7 +227,7 @@ var zoom = (function(){
 				// If an element is set, that takes precedence
 				if( !!options.element ) {
 					// Space around the zoomed in element to leave on screen
-					var padding = 20;
+					var padding = typeof options.padding === 'number' ? options.padding : 20;
 					var bounds = options.element.getBoundingClientRect();
 
 					options.x = bounds.left - padding;
@@ -236,6 +245,9 @@ var zoom = (function(){
 					options.x *= options.scale;
 					options.y *= options.scale;
 
+					options.x = Math.max( options.x, 0 );
+					options.y = Math.max( options.y, 0 );
+
 					magnify( options, options.scale );
 
 					if( options.pan !== false ) {
@@ -244,8 +256,12 @@ var zoom = (function(){
 						// zoom transition
 						panEngageTimeout = setTimeout( function() {
 							panUpdateInterval = setInterval( pan, 1000 / 60 );
-						}, 800 );
+						}, TRANSITION_DURATION );
 
+					}
+
+					if( typeof options.callback === 'function' ) {
+						callbackTimeout = setTimeout( options.callback, TRANSITION_DURATION );
 					}
 				}
 			}
@@ -253,12 +269,20 @@ var zoom = (function(){
 
 		/**
 		 * Resets the document zoom state to its default.
+		 *
+		 * @param {Object} options
+		 *   - callback: call back when zooming out ends
 		 */
-		out: function() {
+		out: function( options ) {
 			clearTimeout( panEngageTimeout );
 			clearInterval( panUpdateInterval );
+			clearTimeout( callbackTimeout );
 
 			magnify( { x: 0, y: 0 }, 1 );
+
+			if( options && typeof options.callback === 'function' ) {
+				setTimeout( options.callback, TRANSITION_DURATION );
+			}
 
 			level = 1;
 		},
@@ -273,6 +297,7 @@ var zoom = (function(){
 	}
 
 })();
+
 
 
 

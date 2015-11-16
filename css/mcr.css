@@ -23,9 +23,10 @@ span.fragment.grow.visible {
     margin: 0 10px;
 }
 
-
-
-
+.reveal .slides section .fragment.zoom {
+    opacity: 1;
+    visibility: visible;
+}
 
 
 .animation {
@@ -170,3 +171,6 @@ span.fragment.grow.visible {
     left: 0%; }
 .animation[data-animation-step="3"] .device .phone-home-button {
     opacity: 1; }
+
+
+

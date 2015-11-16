@@ -105,7 +105,7 @@
         <section>
             <section>
                 <h2>Mobile application</h2>
-                <img src="images/mcr.png">
+                <img class="fragment zoom" src="images/mcr.png">
             </section>
             <section>
                 <h2>Mobile application</h2>
@@ -256,13 +256,13 @@ public Line(Context context, SourceFile sourceFile, int lineNumber,
                 <img src="images/git/git3.png">
             </section>
             <section data-transition="concave">
-                <img src="images/git/board.png">
+                <img src="images/git/board.png" class="fragment zoom">
             </section>
         </section>
 
         <section data-background-color="#000000">
             <h3>Example workflow</h3>
-            <img src="images/git/console.gif" style="border:0">
+            <img src="images/git/console.gif" style="border:0"  class="fragment zoom">
         </section>
 
 
@@ -305,15 +305,15 @@ public Line(Context context, SourceFile sourceFile, int lineNumber,
             </section>
             <section>
                 <h2>Their view</h2>
-                <img src="images/their-board.jpg" class="stretch">
+                <img src="images/their-board.jpg" class="fragment zoom">
             </section>
             <section>
                 <h2>Our view</h2>
-                <img src="images/our-board.jpg" class="stretch">
+                <img src="images/our-board.jpg" class="fragment zoom">
             </section>
             <section data-transition="concave">
                 <h2>Everybody view</h2>
-                <img src="images/crresult.jpg">
+                <img src="images/crresult.jpg" class="fragment zoom">
             </section>
         </section>
 
@@ -412,6 +412,50 @@ public Line(Context context, SourceFile sourceFile, int lineNumber,
             items: window.CHARTS
         }
     });
+
+    (function () {
+        Reveal.addEventListener('ready', function () {
+            Reveal.addEventListener('fragmentshown', function (event) {
+                if (event.fragment.classList.contains('zoom')) {
+                    var zoomMe = function () {
+                        var evt = document.createEvent("MouseEvents");
+
+                        // initialize all the parameters of the event
+                        evt.initMouseEvent("mousedown", true, true, window,
+                                0, 0, 0, 0, 0,
+                                false, true, false, false,  // ctrl, alt, shift, meta
+                                0, null);
+                        event.fragment.dispatchEvent(evt);
+                    };
+                    if (zoom.zoomLevel() == 1) {
+                        zoomMe();
+                    }
+                    else {
+                        zoom.out({callback: zoomMe});
+                    }
+                } else if (zoom.zoomLevel > 1) {
+                    zoom.out();
+                }
+            });
+
+            Reveal.addEventListener('fragmenthidden', function (event) {
+                if (event.fragment.classList.contains('zoom') && zoom.zoomLevel() > 1) {
+                    zoom.out({
+                        callback: function () {
+                            console.log('zoomed out!');
+                        }
+                    });
+                }
+            });
+
+            Reveal.addEventListener('slidechanged', function () {
+                if (zoom.zoomLevel() > 1) {
+                    zoom.reset();
+                }
+            });
+        });
+    })()
+
 
     Reveal.configure({
         keyboard: {
