@@ -72,8 +72,34 @@
             </ul>
         </section>
 
-        <section data-transition="concave" data-background-color="#102f5d">
-            <h2>Can we review the&nbsp;source code on a&nbsp;smartphone?</h2>
+        <section data-transition="concave" data-background-image="http://images.alphacoders.com/436/436399.jpg"
+                 style="background-color: rgba(0, 0, 0, 0.6);">
+            <h2>Can we review the&nbsp;source code on a</h2>
+
+            <div class="animation" data-animation-step="1">
+                <div class="device">
+                    <div class="phone-home-button"></div>
+                    <div class="tablet-home-button"></div>
+                    <div class="screen-stand"><div class="leg"></div><div class="foot"></div></div>
+                    <div class="display">
+                        <div class="slide1"><div><em>desktop?</em></div></div>
+                        <div class="slide2"><div><em>tablet?</em></div></div>
+                        <div class="slide3"><div><em>phone?</em></div></div>
+                    </div>
+                </div>
+            </div>
+
+            <script>
+
+                // this thing is js driven on slid.es so I didn't bother switching out for css animations
+                var duration = 7000, steps = 3, step = 1;
+
+                setInterval( function() {
+                    document.querySelector( '.animation' ).setAttribute( 'data-animation-step', step = ++step > steps ? 1 : step );
+                }, duration / steps );
+
+            </script>
+
         </section>
 
         <section>
