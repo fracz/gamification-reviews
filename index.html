@@ -110,14 +110,14 @@
             <section>
                 <h2>Mobile application</h2>
                 <ul>
-                    <li><i class="fa fa-android" style="color:#00A000"></i> Android 2.2+</li>
+                    <li class="fragment zoom"><i class="fa fa-android" style="color:#00A000"></i> Android 2.2+</li>
                     <li>syntax coloring</li>
                     <li>
                         comments:
                         <ul>
                             <li>text</li>
                             <li>predefined</li>
-                            <li>voice</li>
+                            <li class="fragment zoom">voice</li>
                         </ul>
                     </li>
                     <li>comments sharing via <i class="fa fa-at"></i>, <i class="fa fa-envelope-o"></i>, <i
@@ -417,14 +417,23 @@ public Line(Context context, SourceFile sourceFile, int lineNumber,
         Reveal.addEventListener('ready', function () {
             Reveal.addEventListener('fragmentshown', function (event) {
                 if (event.fragment.classList.contains('zoom')) {
-                    var zoomMe = zoom.to.bind(this, {element: event.fragment});
+                    var zoomMe = function () {
+                        var evt = document.createEvent("MouseEvents");
+
+                        // initialize all the parameters of the event
+                        evt.initMouseEvent("mousedown", true, true, window,
+                                0, 0, 0, 0, 0,
+                                false, true, false, false,  // ctrl, alt, shift, meta
+                                0, null);
+                        event.fragment.dispatchEvent(evt);
+                    };
                     if (zoom.zoomLevel() == 1) {
-                        setTimeout(zoomMe, 50);
+                        zoomMe();
                     }
                     else {
                         zoom.out({callback: zoomMe});
                     }
-                } else if(zoom.zoomLevel > 1) {
+                } else if (zoom.zoomLevel > 1) {
                     zoom.out();
                 }
             });
