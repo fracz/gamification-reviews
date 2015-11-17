@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
 
-    <title>Gamification</title>
+    <title>Assessment of IT professional skills using gamification</title>
 
     <meta name="author" content="Wojciech Frącz">
 
@@ -44,7 +44,7 @@
     <!-- Any section element inside of this container is displayed as a slide -->
     <div class="slides">
         <section>
-            <h1>Our interests & work</h1>
+            <h2>Assessment of IT professional skills using gamification</h2>
 
             <p>
                 <small>Wojciech Frącz, Jacek Dajda, Marek Kisiel-Dorohinicki</small>
@@ -56,7 +56,9 @@
 
         <section>
             <h3 class="fragment grow highlight-blue">1. Code Reviews on Mobile Devices</h3>
+
             <h3>2. Gamification in Software Education</h3>
+
             <h3>3. Gamification and skills assessment in Software Teams</h3>
         </section>
 
@@ -65,7 +67,6 @@
             <ul>
                 <li>readable source code</li>
                 <li>fewer bugs</li>
-                <li>smaller <i>bus factor</i></li>
                 <li>knowledge and skills spread</li>
             </ul>
         </section>
@@ -78,11 +79,20 @@
                 <div class="device">
                     <div class="phone-home-button"></div>
                     <div class="tablet-home-button"></div>
-                    <div class="screen-stand"><div class="leg"></div><div class="foot"></div></div>
+                    <div class="screen-stand">
+                        <div class="leg"></div>
+                        <div class="foot"></div>
+                    </div>
                     <div class="display">
-                        <div class="slide1"><div><em>desktop?</em></div></div>
-                        <div class="slide2"><div><em>tablet?</em></div></div>
-                        <div class="slide3"><div><em>phone?</em></div></div>
+                        <div class="slide1">
+                            <div><em>desktop?</em></div>
+                        </div>
+                        <div class="slide2">
+                            <div><em>tablet?</em></div>
+                        </div>
+                        <div class="slide3">
+                            <div><em>phone?</em></div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -92,9 +102,9 @@
                 // this thing is js driven on slid.es so I didn't bother switching out for css animations
                 var duration = 7000, steps = 3, step = 1;
 
-                setInterval( function() {
-                    document.querySelector( '.animation' ).setAttribute( 'data-animation-step', step = ++step > steps ? 1 : step );
-                }, duration / steps );
+                setInterval(function () {
+                    document.querySelector('.animation').setAttribute('data-animation-step', step = ++step > steps ? 1 : step);
+                }, duration / steps);
 
             </script>
 
@@ -109,7 +119,7 @@
                 <h2>Mobile application</h2>
                 <ul>
                     <li><i class="fa fa-android" style="color:#00A000"></i> Android 2.2+</li>
-                    <li>syntax coloring</li>
+                    <li>syntax highlighting</li>
                     <li>
                         comments:
                         <ul>
@@ -194,16 +204,16 @@ public Line(Context context, SourceFile sourceFile, int lineNumber,
                 <iframe id="mcr-smells-avg" data-chart scrolling="no" style="width:700px; height:700px;"></iframe>
             </section>
             <!--<section data-transition-speed="fast">-->
-                <!--<h2>Avg worthless comments per review</h2>-->
-                <!--<iframe id="mcr-worthless" data-chart scrolling="no" style="width:700px; height:700px;"></iframe>-->
+            <!--<h2>Avg worthless comments per review</h2>-->
+            <!--<iframe id="mcr-worthless" data-chart scrolling="no" style="width:700px; height:700px;"></iframe>-->
             <!--</section>-->
             <!--<section data-transition-speed="fast">-->
-                <!--<h4>Comment types (mobile)</h4>-->
-                <!--<iframe id="mcr-comment-types" data-chart scrolling="no" class="stretch"></iframe>-->
-                <!--<small>-->
-                    <!--<span class="legend mobile"></span> Predefined-->
-                    <!--<span class="legend pc"></span> Text-->
-                <!--</small>-->
+            <!--<h4>Comment types (mobile)</h4>-->
+            <!--<iframe id="mcr-comment-types" data-chart scrolling="no" class="stretch"></iframe>-->
+            <!--<small>-->
+            <!--<span class="legend mobile"></span> Predefined-->
+            <!--<span class="legend pc"></span> Text-->
+            <!--</small>-->
             <!--</section>-->
         </section>
 
@@ -229,7 +239,9 @@ public Line(Context context, SourceFile sourceFile, int lineNumber,
 
         <section>
             <h3>1. Code Reviews on Mobile Devices</h3>
+
             <h3 class="fragment grow highlight-blue">2. Gamification in Software Education</h3>
+
             <h3>3. Gamification and skills assessment in Software Teams</h3>
         </section>
 
@@ -242,12 +254,11 @@ public Line(Context context, SourceFile sourceFile, int lineNumber,
         </section-->
         <section>
             <h3>We tried to gamify University classes dedicated to... </h3>
-            <ul>
-                <li class="fragment highlight-green grow">Git version control system</li>
-                <li>code quality and smell detection</li>
-            </ul>
+            <p class="fragment highlight-green grow">Git version control system</p>
+
+            <p>Code quality and smell detection</p>
         </section>
-		
+
 
         <section data-background-color="#dddddd">
             <section data-transition="none">
@@ -266,7 +277,7 @@ public Line(Context context, SourceFile sourceFile, int lineNumber,
 
         <section data-background-color="#000000">
             <h3>Example workflow</h3>
-            <img src="images/git/console.gif" style="border:0"  class="fragment zoom">
+            <img src="images/git/console.gif" style="border:0" class="fragment zoom">
         </section>
 
 
@@ -299,16 +310,16 @@ public Line(Context context, SourceFile sourceFile, int lineNumber,
         <section data-background-color="#102f5d" data-transition="fade">
             <h3>What about other types of classes?</h3>
         </section>
-		
+
         <section>
-            <h3>We tried to gamify University classes dedicated to... </h3>
-            <ul>
-                <li>Git version control system</li>
-                <li class="fragment highlight-green grow">code quality and smell detection</li>
-            </ul>
+            <h4>We tried to gamify University classes dedicated to... </h4>
+
+            <p>Git version control system</p>
+
+            <p class="fragment highlight-green grow">Code quality and smell detection</p>
         </section>
 
-        <section >
+        <section>
             <section data-transition="none" data-background-color="#DDDDDD">
                 <img src="images/git/git3.png">
             </section>
@@ -333,7 +344,8 @@ public Line(Context context, SourceFile sourceFile, int lineNumber,
             <p>We have not analyzed the results yet, but...</p>
         </section>
 
-        <section data-background-image="images/playing.gif" style="background-color: rgba(0, 0, 0, 0.7);" data-transition="zoom" data-background-transition="zoom">
+        <section data-background-image="images/playing.gif" style="background-color: rgba(0, 0, 0, 0.7);"
+                 data-transition="zoom" data-background-transition="zoom">
             <h1>Everybody liked it!</h1>
         </section>
 
@@ -344,37 +356,42 @@ public Line(Context context, SourceFile sourceFile, int lineNumber,
             <p>&</p>
             <h4 class="fragment highlight-green grow">Developers doing code reviews</h4>
         </section-->
-		
+
         <section>
             <h3>1. Code Reviews on Mobile Devices</h3>
+
             <h3>2. Gamification in Software Education</h3>
-            <h3  class="fragment grow highlight-blue">3. Gamification and skills assessment in Software Teams</h3>
+
+            <h3 class="fragment grow highlight-blue">3. Gamification and skills assessment in Software Teams</h3>
         </section>
-		
-        <section>
-            <h3>Idea</h3>
-			<ul>
-				<li>Valuable data in Code Review system (Gerrit)</li>
-				<li>Nobody uses it to improve team work</li>
-				<li class="fragment" data-fragment-index="1"><span class="fragment highlight-blue">Let's try to produce some recommendations</span></li>
-				<li>Developers are not encouraged to do reviews</li>
-				<li class="fragment" data-fragment-index="2"><span class="fragment highlight-blue">Let's introduce gamification (emhpasize reviewers effort)</span></li>
-				
-			</ul>
+
+        <section data-background-image="images/gerrit.jpg" data-transition="zoom" data-background-transition="zoom"
+                 style="background-color: rgba(0, 0, 0, 0.8);">
+            <h2>Idea</h2>
+            <ul>
+                <li>Valuable data in Code Review system (Gerrit)</li>
+                <li>Nobody uses it to improve team work</li>
+                <li>Developers are not encouraged to do reviews</li>
+            </ul>
         </section>
-		
+
+        <section data-background-image="images/playing.gif" style="background-color: rgba(0, 0, 0, 0.7);"
+                 data-transition="zoom" data-background-transition="zoom">
+            <h2>Let's introduce gamification!</h2>
+        </section>
+
         <section>
             <h3>Assumptions</h3>
-			<ul>
-				<li>Open architecture (integrates with Gerrit and Stash)</li>
-				<li>User selects project and time period</li>
-				<li>The tool produces interesting results :-) </li>
+            <ul>
+                <li>Open architecture (integrates with Gerrit and Stash)</li>
+                <li>User selects project and time period</li>
+                <li>The tool produces interesting results <i class="fa fa-smile-o"></i></li>
+            </ul>
         </section>
 
         <section data-background-transition="slide">
-            <section data-background-image="images/gerrit.jpg" data-background-transition="slide"></section>
             <section>
-                <h4>Received and given comments</h4>
+                <h3>Received and given comments</h3>
                 <img src="images/mostcomments.png" class="stretch">
             </section>
             <section>
@@ -386,7 +403,7 @@ public Line(Context context, SourceFile sourceFile, int lineNumber,
                 <img src="images/avglength.jpg" class="stretch">
             </section>
             <section>
-                <h4>Hot topics</h4>
+                <h3>Hot topics</h3>
                 <img src="images/hottopics.png" class="stretch">
             </section>
             <section>
@@ -394,34 +411,34 @@ public Line(Context context, SourceFile sourceFile, int lineNumber,
                 <img src="images/hottopics2.png" class="stretch">
             </section>
             <section>
-                <h4>Review pairs</h4>
+                <h3>Review pairs</h3>
                 <img src="images/reviewpairs.png" class="stretch">
             </section>
             <!--section data-background-image="images/graph.jpg" data-background-transition="slide"></section-->
             <section>
                 <h4>Developers ranking (Most Valued Developer)</h4>
 				<pre><code data-trim>
-Developer Result = Number of changes +
-	 	2 * Number of reviewed changes - 
-		0.5 * Number of NT changes -
-		0.1 * Number of received comments +
-		0.05 * Number of written comments +
-		0.05* Average length of a comment -
-		0.15 * Number of comments per change
-				</code></pre>
-                
+                    Developer Result = Number of changes +
+                    2 * Number of reviewed changes -
+                    0.5 * Number of NT changes -
+                    0.1 * Number of received comments +
+                    0.05 * Number of written comments +
+                    0.05* Average length of a comment -
+                    0.15 * Number of comments per change
+                </code></pre>
+
             </section>
             <section>
                 <h4>Example ranking</h4>
                 <img src="images/rating.jpg" class="stretch">
             </section>
             <section>
-           	 <h3>Status and plans</h3>
-				<ul>
-				<li>Used and tested in our teams</li>
-				<li>Closer integration with Gerrit</li>
-				<li>New metrics and data sources (Continuous Integration?)</li>
-			</ul>
+                <h3>Status and plans</h3>
+                <ul>
+                    <li>Used and tested in our teams</li>
+                    <li>Closer integration with Gerrit</li>
+                    <li>New metrics and data sources (Continuous Integration?)</li>
+                </ul>
             </section>
 
         </section>
