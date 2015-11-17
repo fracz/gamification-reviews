@@ -55,11 +55,9 @@
         </section>
 
         <section>
-            <h3 class="fragment grow highlight-blue">Code Reviews on Mobile Devices</h3>
-
-            <p>&</p>
-
-            <h3>Gamification in Software Engineering and Education</h3>
+            <h3 class="fragment grow highlight-blue">1. Code Reviews on Mobile Devices</h3>
+            <h3>2. Gamification in Software Education</h3>
+            <h3>3. Gamification and skills assessment in Software Teams</h3>
         </section>
 
         <section>
@@ -230,20 +228,26 @@ public Line(Context context, SourceFile sourceFile, int lineNumber,
         </section>
 
         <section>
-            <h3>Code Reviews on Mobile Devices</h3>
-
-            <p>&</p>
-
-            <h3 class="fragment grow highlight-blue">Gamification in Software Engineering and Education</h3>
+            <h3>1. Code Reviews on Mobile Devices</h3>
+            <h3 class="fragment grow highlight-blue">2. Gamification in Software Education</h3>
+            <h3>3. Gamification and skills assessment in Software Teams</h3>
         </section>
 
-        <section>
+        <!--section>
             <h2>We tried to gamify</h2>
             <h4 class="fragment highlight-green grow">University classes</h4>
 
             <p>&</p>
             <h4>Developers doing code reviews</h4>
+        </section-->
+        <section>
+            <h3>We tried to gamify University classes dedicated to... </h3>
+            <ul>
+                <li class="fragment highlight-green grow">Git version control system</li>
+                <li>code quality and smell detection</li>
+            </ul>
         </section>
+		
 
         <section data-background-color="#dddddd">
             <section data-transition="none">
@@ -295,6 +299,14 @@ public Line(Context context, SourceFile sourceFile, int lineNumber,
         <section data-background-color="#102f5d" data-transition="fade">
             <h3>What about other types of classes?</h3>
         </section>
+		
+        <section>
+            <h3>We tried to gamify University classes dedicated to... </h3>
+            <ul>
+                <li>Git version control system</li>
+                <li class="fragment highlight-green grow">code quality and smell detection</li>
+            </ul>
+        </section>
 
         <section >
             <section data-transition="none" data-background-color="#DDDDDD">
@@ -304,15 +316,15 @@ public Line(Context context, SourceFile sourceFile, int lineNumber,
                 <img src="images/crscheme.png">
             </section>
             <section>
-                <h2>Their view</h2>
+                <h2>Student view (Gerrit)</h2>
                 <img src="images/their-board.jpg" class="fragment zoom">
             </section>
             <section>
-                <h2>Our view</h2>
+                <h2>Teacher view</h2>
                 <img src="images/our-board.jpg" class="fragment zoom">
             </section>
             <section data-transition="concave">
-                <h2>Everybody view</h2>
+                <h2>Score board view</h2>
                 <img src="images/crresult.jpg" class="fragment zoom">
             </section>
         </section>
@@ -322,31 +334,94 @@ public Line(Context context, SourceFile sourceFile, int lineNumber,
         </section>
 
         <section data-background-image="images/playing.gif" style="background-color: rgba(0, 0, 0, 0.7);" data-transition="zoom" data-background-transition="zoom">
-            <h1>Everybody liked it</h1>
+            <h1>Everybody liked it!</h1>
         </section>
 
-        <section>
+        <!--section>
             <h2>We tried to gamify</h2>
             <h4>University classes</h4>
 
             <p>&</p>
             <h4 class="fragment highlight-green grow">Developers doing code reviews</h4>
+        </section-->
+		
+        <section>
+            <h3>1. Code Reviews on Mobile Devices</h3>
+            <h3>2. Gamification in Software Education</h3>
+            <h3  class="fragment grow highlight-blue">3. Gamification and skills assessment in Software Teams</h3>
+        </section>
+		
+        <section>
+            <h3>Idea</h3>
+			<ul>
+				<li>Valuable data in Code Review system (Gerrit)</li>
+				<li>Nobody uses it to improve team work</li>
+				<li class="fragment" data-fragment-index="1"><span class="fragment highlight-blue">Let's try to produce some recommendations</span></li>
+				<li>Developers are not encouraged to do reviews</li>
+				<li class="fragment" data-fragment-index="2"><span class="fragment highlight-blue">Let's introduce gamification (emhpasize reviewers effort)</span></li>
+				
+			</ul>
+        </section>
+		
+        <section>
+            <h3>Assumptions</h3>
+			<ul>
+				<li>Open architecture (integrates with Gerrit and Stash)</li>
+				<li>User selects project and time period</li>
+				<li>The tool produces interesting results :-) </li>
         </section>
 
         <section data-background-transition="slide">
             <section data-background-image="images/gerrit.jpg" data-background-transition="slide"></section>
             <section>
-                <h4>Average lenght of the comment</h4>
+                <h4>Received and given comments</h4>
+                <img src="images/mostcomments.png" class="stretch">
+            </section>
+            <section>
+                <h4>Average length of the comment</h4>
                 <img src="images/avgsize.jpg" class="stretch">
             </section>
             <section>
                 <h4>Average number of received comments per change</h4>
                 <img src="images/avglength.jpg" class="stretch">
             </section>
-            <section data-background-image="images/graph.jpg" data-background-transition="slide"></section>
             <section>
-                <h4>Final assessment of a developer</h4>
+                <h4>Hot topics</h4>
+                <img src="images/hottopics.png" class="stretch">
+            </section>
+            <section>
+                <h4>Hot topics (details)</h4>
+                <img src="images/hottopics2.png" class="stretch">
+            </section>
+            <section>
+                <h4>Review pairs</h4>
+                <img src="images/reviewpairs.png" class="stretch">
+            </section>
+            <!--section data-background-image="images/graph.jpg" data-background-transition="slide"></section-->
+            <section>
+                <h4>Developers ranking (Most Valued Developer)</h4>
+				<pre><code data-trim>
+Developer Result = Number of changes +
+	 	2 * Number of reviewed changes - 
+		0.5 * Number of NT changes -
+		0.1 * Number of received comments +
+		0.05 * Number of written comments +
+		0.05* Average length of comment -
+		0.15 * Number of comments per change
+				</code></pre>
+                
+            </section>
+            <section>
+                <h4>Example ranking</h4>
                 <img src="images/rating.jpg" class="stretch">
+            </section>
+            <section>
+           	 <h3>Status and plans</h3>
+				<ul>
+				<li>Used and tests in our teams</li>
+				<li>Closer integration with Gerrit</li>
+				<li>New metrics and data sources (Continuous Integration?)</li>
+			</ul>
             </section>
 
         </section>
